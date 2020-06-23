@@ -1,0 +1,38 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Resultados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="items && items.length > 0">
+    <ion-list>
+      <ion-list-header>
+        {{searchFilter}}
+      </ion-list-header>
+      <ion-item detail button (click)="detailsComponent(i)" *ngFor="let i of items">
+        <ion-avatar slot="start">
+          <!-- <img [src]="i.img"> -->
+          <img src="../../assets/delivery-boy.webp">
+        </ion-avatar>
+        <ion-label>
+          <ion-text color="primary">
+            <h2>{{i.name}}</h2>
+          </ion-text>
+          <!-- <ion-text color="secondary">
+          <h3>{{i.desc}}</h3>
+        </ion-text> -->
+          <p>{{i.address}}</p>
+          <p>{{i.phone}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer>
+  <div style="font-size: 10px; text-align: center;"><a href="https://www.vecteezy.com/free-vector/away">Away Vectors by
+      Vecteezy</a></div>
+</ion-footer>

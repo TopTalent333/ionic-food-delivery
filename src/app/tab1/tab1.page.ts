@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  searchValue = '';
+
+  constructor(private router: Router) { }
+
+  openResultsWithQueryParams() {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        search: this.searchValue === '' ? 'all' : this.searchValue
+      }
+    };
+    this.router.navigate(['results'], navigationExtras);
+  }
 
 }

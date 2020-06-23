@@ -1,17 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Pedidos Salto
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="center">
+    <ion-img style="height: 80px; width: 100%;" src="../../assets/icon/favicon.png"></ion-img>
+    <ion-searchbar [(ngModel)]="searchValue" placeholder="Qué estás buscando?"></ion-searchbar>
+    <ion-text style="padding-left: 12px; padding-right: 12px;">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      Comidas, bebidas y comercios
+    </ion-text>
+    <ion-button expand="block" (click)="openResultsWithQueryParams()" style="margin-top: 20px;">Buscar</ion-button>
+  </div>
+
 </ion-content>

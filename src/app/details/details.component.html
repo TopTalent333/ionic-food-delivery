@@ -1,0 +1,105 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <!-- <div style="text-align: center;">
+      <img [src]="receivedData.img" />
+    </div> -->
+    <ion-row class="ion-align-items-center detail-card-footer">
+      <ion-col>
+        <ion-chip button (click)="heart()" tappable>
+          <ion-icon name="heart" color="danger"></ion-icon>
+        </ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip button (click)="navigate()" tappable>
+          <ion-icon name="navigate" color="secondary"></ion-icon>
+        </ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip button (click)="call()" tappable>
+          <ion-icon name="call" color="success"></ion-icon>
+        </ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip button (click)="share()" tappable>
+          <ion-icon name="share-social" color="tertiary"></ion-icon>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+    <ion-card-header>
+      <ion-card-subtitle>{{receivedData.desc}}</ion-card-subtitle>
+      <ion-card-title>{{receivedData.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let m of receivedData.offers">
+        <ion-row>
+          <ion-col style="text-decoration: underline; font-weight: bold;">
+            Producto
+          </ion-col>
+          <ion-col size="3" style="text-decoration: underline; font-weight: bold;">
+            Precio
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="cursor: default;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;">
+            {{m.name}}
+          </ion-col>
+          <ion-col size="3">
+            ${{m.price}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Cantidad: {{m.quantity}}
+          </ion-col>
+          <ion-col class="ion-align-items-center detail-card-footer">
+            <ion-chip button (click)="addToCart(m)" tappable>
+              <ion-icon name="add-circle" color="success"></ion-icon>
+            </ion-chip>
+            <ion-chip button (click)="removeFromCart(m)" tappable>
+              <ion-icon name="remove-circle" color="danger"></ion-icon>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-button expand="block" (click)="confirmBuy()" style="margin-top: 20px;" color="success">Confirmar Pedido
+      </ion-button>
+    </ion-card-content>
+
+    <ion-footer>
+      <!-- <ion-row class="ion-align-items-center detail-card-footer">
+        <ion-col>
+          <ion-chip>
+            <ion-icon name="heart" color="danger"></ion-icon>
+          </ion-chip>
+        </ion-col>
+        <ion-col>
+          <ion-chip>
+            <ion-icon name="navigate" color="secondary"></ion-icon>
+          </ion-chip>
+        </ion-col>
+        <ion-col>
+          <ion-chip>
+            <ion-icon name="call" color="success"></ion-icon>
+          </ion-chip>
+        </ion-col>
+        <ion-col>
+          <ion-chip>
+            <ion-icon name="share-social" color="tertiary"></ion-icon>
+          </ion-chip>
+        </ion-col>
+      </ion-row> -->
+    </ion-footer>
+  </ion-card>
+</ion-content>
